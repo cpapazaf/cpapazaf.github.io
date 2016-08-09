@@ -62,6 +62,15 @@ network={
 }
 {% endhighlight %}
 
+Continue with installing python3 and pip3, git
+{% highlight bash %}
+sudo apt-get update
+sudo apt-get install python3
+sudo apt-get install python3-pip
+sudo apt-get install git
+{% endhighlight %}
+
+
 [rpi-install]: https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
 [rpi-jesie-lite]: https://www.raspberrypi.org/downloads/raspbian/
 [rpi-connect-wifi]: https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md
