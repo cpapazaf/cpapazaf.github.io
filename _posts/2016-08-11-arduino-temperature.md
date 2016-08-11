@@ -10,5 +10,8 @@ We gonna build a circuit which looks something like this (without the LCD part w
 <iframe frameborder='0' height='500' marginheight='0' marginwidth='0' scrolling='no' src='https://circuits.io/circuits/2523563-micro-lcd-temperature/embed#breadboard' width='650'></iframe>
 
 
+The real case example looks like:
+
+<img src="/images/arduino_temperature_humidity.JPG" alt="Arduino Temperature/Humidity">
 
 
