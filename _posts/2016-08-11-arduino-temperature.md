@@ -14,4 +14,7 @@ The real case example looks like:
 
 <img src="/images/arduino_temperature_humidity.JPG" alt="Arduino Temperature/Humidity">
 
-
+{% github_sample_ref /bwillis/versioncake/989237901cb873f96df12be48cbf1239be496bd7/Appraisals %}
+{% highlight ruby %}
+{% github_sample /bwillis/versioncake/989237901cb873f96df12be48cbf1239be496bd7/Appraisals 0 5 %}
+{% endhighlight %}
