@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title:  "Configuring the Raspberry PI"
 date:   2016-07-27 19:00:02 +0100
 categories: raspberrypi
