@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Tags
 description: List of all Tags and articles
 ---
