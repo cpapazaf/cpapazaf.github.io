@@ -1,16 +1,16 @@
 ---
 layout: post
 comments: true
-title:  "Start and monitor processes with python asyncio"
+title:  "Monitor processes with Python asyncio"
 date:   2016-12-07 19:00:02 +0100
 categories: python
 tags: python asyncio
 ---
 
-##Chalenge Definition
-Use new [Python 3.5 asyncio][python-asyncio] to asynchronously spawn processes and monitor their status
+## Chalenge Definition
+Use the new [Python 3.5 asyncio][python-asyncio] to asynchronously spawn processes and monitor their status
 
-##Prerequisites
+## Prerequisites
 Python 3.5
 
 ## Code
@@ -47,10 +47,8 @@ sys.exit(random.choice([0, 1]))
 
 @asyncio.coroutine
 def readline(proc):
-
     data = yield from proc.stdout.readline()
     line = data.decode('ascii').rstrip()
-
     return line
 
 @asyncio.coroutine
@@ -71,7 +69,7 @@ def monitor_procs(procs):
 def generate_process(procs):
     while True:
         yield from asyncio.sleep(5)
-        print('Monitoring now')
+        print('Starting new Process...')
         proc = yield from start_process()
         procs[proc.pid] = proc
 
