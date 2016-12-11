@@ -7,7 +7,7 @@ categories: python
 tags: python asyncio
 ---
 
-## Chalenge Definition
+## Chalenge
 Use the new [Python 3.5 asyncio][python-asyncio] to asynchronously spawn processes and monitor their status
 
 ## Prerequisites
@@ -94,6 +94,49 @@ tasks = asyncio.gather(
 )
     
 asyncio.get_event_loop().run_forever()
+```
+
+And here is the console output
+
+```bash
+Starting new Process...
+Proc with id: 64715 still running
+Proc with id: 64715 still running
+Proc with id: 64715 still running
+Proc with id: 64715 still running
+Proc with id: 64715 still running
+Starting new Process...
+Proc with id: 64715 still running
+Proc with id: 64731 still running
+Proc with id: 64715 still running
+Proc with id: 64731 still running
+Proc with id: 64715 still running
+Proc with id: 64731 still running
+Proc with id: 64715 still running
+Proc with id: 64731 still running
+Proc with id: 64715 exited with code 1, removing...
+Proc with id: 64731 still running
+Starting new Process...
+Proc with id: 64747 still running
+Proc with id: 64731 still running
+Proc with id: 64747 still running
+Proc with id: 64731 still running
+Proc with id: 64747 still running
+Proc with id: 64731 still running
+Proc with id: 64747 still running
+Proc with id: 64731 still running
+Proc with id: 64747 still running
+Proc with id: 64731 still running
+Starting new Process...
+Proc with id: 64747 still running
+Proc with id: 64765 still running
+Proc with id: 64731 still running
+Proc with id: 64747 still running
+Proc with id: 64765 still running
+Proc with id: 64731 still running
+Proc with id: 64747 still running
+Proc with id: 64765 still running
+Proc with id: 64731 exited with code 0, removing...
 ```
 
 [python-asyncio]: https://docs.python.org/3/library/asyncio.html
