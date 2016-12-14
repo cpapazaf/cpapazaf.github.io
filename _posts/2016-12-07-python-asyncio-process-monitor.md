@@ -7,7 +7,7 @@ categories: python
 tags: python asyncio
 ---
 
-## Chalenge
+## Challenge
 Use the new [Python 3.5 asyncio][python-asyncio] to asynchronously spawn processes and monitor their status
 
 ## Prerequisites
@@ -96,7 +96,7 @@ tasks = asyncio.gather(
 asyncio.get_event_loop().run_forever()
 ```
 
-And here is the console output
+The console output:
 
 ```bash
 Starting new Process...
