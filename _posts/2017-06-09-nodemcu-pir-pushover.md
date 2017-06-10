@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title:  "The simplest, cheapest and easiest home security ever!"
+title:  "The simplest, cheapest and easiest home security solution ever!"
 date:   2017-06-09 19:00:02 +0100
 categories: iot
 tags: iot nodemcu
@@ -11,17 +11,16 @@ tags: iot nodemcu
 Send push notifications by just using [Pushover][pushover-web], [NodeMcu][nodemcu-web] and a [PIR][pir-web] sensor.
 
 ## Prerequisites
-* Create an account on [Pushover][pushover-web]. The cost for that is pretty low concidering that you only need to buy their app!
+* Create an account on [Pushover][pushover-web]. The cost for that is pretty low concidering that you only need to buy their mobile app!
 * [NodeMcu][nodemcu-web]
 * [PIR][pir-web] sensor
 * [Arduino IDE][arduino-ide-web]
 
 ## Connecting everything
-
-
+Just connect the sensor's output to D1 of your NodeMcu and flush the code bellow. Sit back and enjoy!
 
 ## Code
-```python
+```cpp
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
 
