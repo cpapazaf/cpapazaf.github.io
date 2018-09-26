@@ -8,19 +8,19 @@ tags: python
 ---
 
 ## Challenge
-So, what is the magic behind Event Loops? We see them everywhere nowadays? [Asyncio][asyncio-web], [Tornado][tornado-web], [Nodejs][nodejs-web], etc. etc.!
+So, what is the magic behind the so called Event Loops? We see them everywhere nowadays! [Asyncio][asyncio-web], [Tornado][tornado-web], [Nodejs][nodejs-web], etc. etc.! Let's build one :)
 
 ## Prerequisites
 * Use Python 3 
 
 ## Description
 All in all, an EventLoop is just a loop :) A while loop!
-And what about the Events? Well, events span from regular network IO, user interactions, to message passing etc.
+And what about the Events? Well, events can be: network IO, user interactions, message passing etc.
 In Unix systems, most of the events are handled by ["file-like"][std-files] structures. For each process, for example, the OS creates 3 files. One for stdin, one for stdout and one for stderr. Same happens for sockets, pipes etc.
 
-Handling these types of files normally happens through system calls (which differ from OS to OS) like select, poll, epoll, kqueue etc. The aforementioned calls provide us with the status of the file. If it is open for read/write and how many bits are ready to be read/written. Check [here][io-models] for more. 
+Handling these types of files normally happens through system calls (which differ from OS to OS) like select, poll, epoll, kqueue etc. The aforementioned calls provide us with the status of the file. Is a file open for read/write and how many bits are ready to be read/written, are some of the examples. Check [here][io-models] for more details. 
 
-The important part for our study is the [arguments][select-args] of the select method. And most importantly the `timeout`. Why? Because is makes the call non blocking. That practically means that our while loop will keep running forever. And that gives us the ability to squeeze little more work in there :)
+The important part in our study is the [arguments][select-args] of the `select` method. And most importantly the `timeout`. Why? Because is makes the call non blocking. That practically means that our while loop will keep running forever. And that gives us the ability to squeeze little more work in there :)
 
 Check the code below
 
@@ -118,11 +118,11 @@ if __name__ == '__main__':
     main()
 ```
 
-The whole idea of how Event Loops work resides in the `run_forever` method. A `while loop` keeps reading from the input file is a non-blocking manner and executes tasks that are already in the task list, like our nice fibonacci method.
+The idea of how Event Loops work, resides in the `run_forever` method. A `while loop` keeps reading from the input file in a non-blocking manner and executes tasks from the task list, like our nice fibonacci method.
 
-What is the whole idea of the snippet above? A selector reads always from the stdin file descriptor for a number. Then uses that number as input to the fibonacci method. Replace the sys.stdin with a socket and the `sdtin_line_handler` with an `http_request_handler` and you have just built the simplest single threaded IO Loop!
+A selector reads from the stdin file descriptor for a number. Then, uses that number as input to the fibonacci method. Replace the sys.stdin with a socket and the `sdtin_line_handler` with an `http_request_handler` and you have just built the simplest single threaded IO Loop!
 
-It worths mentioning a really important aspect when using event loops. And that is the implementation in the `fib` method. If you try executing the snippet above with input 10, it will return really fast and you will not notice the loop blocking. Try it with input number 100 and you will see that the loop is now blocked, since it tries to calculate the Fibonacci number. The CPU is fully occupied!
+It worths mentioning a really important aspect when using event loops. And that is the implementation in the `fib` method. If you try executing the snippet above with input 10, it will execute really fast and you will not notice the loop blocking. Try it with input number 100 and you will see that the event loop is now blocked, since it tries to calculate the Fibonacci number and fib is blocked in its own "loop" (recursion).
 
 In that case we need to refactor our `fib` method to something like:
 
@@ -141,7 +141,7 @@ def fib(n):
 
 Give it a try. You will notice that the calculation is much faster and the loop doesn't block anymore. That is because we have transformed the Fibonacci calculation to asynchronous by using the yield operator.
 
-That is something to keep in mind when developing using eventloops. Try to make everything async all the way to avoid blocking the loop for long periods! 
+That is something to keep in mind when developing using eventloops. Try to make everything async, all the way, to avoid blocking the loop for long periods! 
 
 [asyncio-web]: https://docs.python.org/3/library/asyncio.html
 [tornado-web]: https://github.com/tornadoweb/tornado
